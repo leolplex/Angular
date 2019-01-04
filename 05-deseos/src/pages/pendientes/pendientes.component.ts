@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeseosService } from '../../services/deseos.service';
 import { Lista } from '../../models/lista.model';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, List } from 'ionic-angular';
 import { AgregarPage } from '../agregar/agregar.component';
 import { text } from '@angular/core/src/render3/instructions';
 
@@ -16,9 +16,6 @@ export class PendientesPage implements OnInit {
 
     ngOnInit(): void { }
 
-    listaSeleccionada(lista: Lista) {
-        console.log(lista);
-    }
 
     agregarLista() {
 
