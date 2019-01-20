@@ -39,6 +39,21 @@ export class DataComponent implements OnInit {
     // this.forma.setValue(this.usuario);
 
     this.forma.controls['password2'].setValidators([Validators.required, this.noIgual.bind(this.forma)]);
+
+    // this.forma.valueChanges
+    //   .subscribe(data => {
+    //     console.log(data);
+    //   });
+
+    this.forma.controls['username'].valueChanges
+      .subscribe(data => {
+        console.log(data);
+      });
+
+    this.forma.controls['username'].statusChanges
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
   ngOnInit() {
