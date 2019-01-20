@@ -30,9 +30,13 @@ export class DataComponent implements OnInit {
       'correo': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'pasatiempos': new FormArray([
         new FormControl('Correr', Validators.required)
-      ])
+      ]),
+      'password1': new FormControl('', Validators.required),
+      'password2': new FormControl()
     });
     // this.forma.setValue(this.usuario);
+
+    this.forma.controls['password2'].setValidators([Validators.required, this.noIgual.bind(this.forma)]);
   }
 
   ngOnInit() {
@@ -47,6 +51,14 @@ export class DataComponent implements OnInit {
   noAlbarracin(control: FormControl): { [s: string]: boolean } {
     if (control.value === 'albarracin') {
       return { noalbarracin: true };
+    }
+    return null;
+  }
+
+  noIgual(control: FormControl): { [s: string]: boolean } {
+    const forma: any = this;
+    if (control.value !== forma.controls['password1'].value) {
+      return { noiguales: true };
     }
     return null;
   }
