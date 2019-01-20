@@ -25,7 +25,7 @@ export class DataComponent implements OnInit {
     this.forma = new FormGroup({
       'nombrecompleto': new FormGroup({
         'nombre': new FormControl('', [Validators.required, Validators.minLength(3)]),
-        'apellido': new FormControl('', Validators.required)
+        'apellido': new FormControl('', [Validators.required, this.noAlbarracin])
       }),
       'correo': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       'pasatiempos': new FormArray([
@@ -44,16 +44,23 @@ export class DataComponent implements OnInit {
     );
   }
 
+  noAlbarracin(control: FormControl): { [s: string]: boolean } {
+    if (control.value === 'albarracin') {
+      return { noalbarracin: true };
+    }
+    return null;
+  }
+
   guardarCambios() {
     console.log(this.forma.value);
     console.log(this.forma);
-    this.forma.reset({
-      nombrecompleto: {
-        nombre: '',
-        apellido: ''
-      },
-      correo: ''
-    });
+    // this.forma.reset({
+    //   nombrecompleto: {
+    //     nombre: '',
+    //     apellido: ''
+    //   },
+    //   correo: ''
+    // });
   }
 
 }
