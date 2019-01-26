@@ -37,9 +37,14 @@ export class HeroesService {
       }));
   }
 
-  getHeroes(key$: string) {
+  getHeroe(key$: string) {
     const url = `${this.fireHeroeURL}${key$}.json`;
     return this.http.get(url).pipe(map(res => {
+      return res;
+    }));
+  }
+  getHeroes() {
+    return this.http.get(this.fireHeroesURL).pipe(map(res => {
       return res;
     }));
   }
