@@ -12,6 +12,7 @@ import { Heroe } from 'src/app/interfaces/heroe.interface';
 export class HeroesComponent implements OnInit {
 
   heroes: any;
+  loading = true;
 
   constructor(private _heroesService: HeroesService) {
     this.obtenerHeroes();
@@ -20,6 +21,11 @@ export class HeroesComponent implements OnInit {
   private obtenerHeroes() {
     this._heroesService.getHeroes().subscribe((data: any) => {
       this.heroes = JSON.parse(data._body);
+      this.loading = false;
+      // setTimeout(() => {
+      //   this.heroes = JSON.parse(data._body);
+      //   this.loading = false;
+      // }, 3000);
     });
   }
 
