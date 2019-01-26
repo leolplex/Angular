@@ -14,13 +14,27 @@ export class HeroesComponent implements OnInit {
   heroes: any;
 
   constructor(private _heroesService: HeroesService) {
+    this.obtenerHeroes();
+  }
+
+  private obtenerHeroes() {
     this._heroesService.getHeroes().subscribe((data: any) => {
-      // console.log(JSON.parse(data._body));
       this.heroes = JSON.parse(data._body);
     });
   }
 
   ngOnInit() {
   }
+
+  borrarHeroe(key$: string) {
+    this._heroesService.borrarHeroe(key$).subscribe((data: any) => {
+      if (JSON.parse(data._body)) {
+        console.error(data);
+      } else {
+        delete this.heroes[key$];
+      }
+    });
+  }
+
 
 }

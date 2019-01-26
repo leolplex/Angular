@@ -42,3 +42,7 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.btn-space {
+    margin-right: 5px;
+}

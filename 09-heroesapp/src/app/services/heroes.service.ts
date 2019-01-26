@@ -48,5 +48,11 @@ export class HeroesService {
       return res;
     }));
   }
+  borrarHeroe(key$: string) {
+    const url = `${this.fireHeroeURL}${key$}.json`;
+    return this.http.delete(url).pipe(map(res => {
+      return res;
+    }));
+  }
 }
 
