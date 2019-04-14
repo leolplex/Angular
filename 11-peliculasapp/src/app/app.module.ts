@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { JsonpModule, HttpModule } from '@angular/http';
 
 
@@ -28,7 +29,8 @@ import { UrlimagePipe } from './pipes/urlimage.pipe';
     BrowserModule,
     JsonpModule,
     HttpModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

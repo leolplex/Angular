@@ -9,13 +9,12 @@ import { PeliculasService } from '../../services/peliculas.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  peliculasEnCartelera = {};
-  peliculasPopulares = {};
-  peliculasParaNinosPopulares = {};
+  peliculasEnCartelera = [];
+  peliculasPopulares = [];
+  peliculasParaNinosPopulares = [];
 
   constructor(public _ps: PeliculasService) {
     this._ps.getInTheatres().subscribe(data => {
-      console.log(data);
       this.peliculasEnCartelera = data['_body'].results;
     });
 

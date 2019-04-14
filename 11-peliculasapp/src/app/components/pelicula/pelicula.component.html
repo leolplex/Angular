@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-4" *ngFor="let pelicula of items">
+    <div class="col-12 col-md-4 col-lg-4" *ngFor="let pelicula of items">
         <div class="card" style="width: 18rem;">
             <img [src]="pelicula.backdrop_path | urlimage: pelicula.poster_path" class="card-img-top" alt="...">
             <div class="card-body">

@@ -3,30 +3,25 @@
 </h3>
 <div class="row">
     <div class="col-10">
-        <input class="form-control" type="text" placeholder="Buscar" aria-label="Buscar">
+        <input class="form-control" type="text" placeholder="Buscar" aria-label="Buscar" [(ngModel)]="textoUsuario">
+
+
     </div>
     <div class="col-2">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="buscarPelicula()">Buscar</button>
     </div>
 </div>
 <hr>
 
-<h3>
-    Deben de aparecer de forma elegante con la imagen del poster
-</h3>
-<div class="row">
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
+
+
+
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-12 font-italic">Resultados</h1>
     </div>
 </div>
-<hr>
 
-<h5>
-    Al hacer click, llevarme a ver la información de la película
-</h5>
+<app-pelicula [items]="peliculasResultado"></app-pelicula>
+
+<hr>
