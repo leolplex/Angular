@@ -1,14 +1,20 @@
-<h3>
-    Esta pantalla debe mostrar por lo menos, la imagen del poster en grande
-</h3>
-<hr>
-<h3>
-    Debe mostrar la sinopsis de la película
-</h3>
-<hr>
-<h3>
-    Debe poder regresar a la página anterior
-</h3>
+<div class="card mb-12" style="max-width: 1024px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img [src]="detallePelicula.poster_path | urlimage: detallePelicula.poster_path" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{detallePelicula.title}}</h5>
+                <p class="card-text">{{detallePelicula.overview}}</p>
+                <p class="card-text"><small class="text-muted">{{detallePelicula.release_date}}</small></p>
+                <p class="card-text"><small class="text-muted">Popularidad: {{detallePelicula.popularity}}</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <hr>
 
 <h5>

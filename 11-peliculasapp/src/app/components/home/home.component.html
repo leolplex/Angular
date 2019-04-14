@@ -1,48 +1,29 @@
-<h3>
-    Peliculas en la cartelera de cines actual
-</h3>
-<div class="row">
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
+<h2>
+
+</h2>
+
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-12 font-italic">Peliculas en la cartelera de cines actual</h1>
     </div>
 </div>
+
+<app-pelicula [items]="peliculasEnCartelera"></app-pelicula>
+
 <hr>
-<h3>
-    Peliculas populares
-</h3>
-<div class="row">
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-12 font-italic">Peliculas populares</h1>
     </div>
 </div>
+
+<app-pelicula [items]="peliculasPopulares"></app-pelicula>
 <hr>
-<h3>
-    Peliculas para niños más populares
-</h3>
-<div class="row">
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
-    </div>
-    <div class="col-4">
-        <app-pelicula></app-pelicula>
+
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-12 font-italic">Peliculas para niños más populares</h1>
     </div>
 </div>
+<app-pelicula [items]="peliculasParaNinosPopulares"></app-pelicula>
 <hr>
-<h5>
-    Al hacer click en cualquier película, debe de llevarme a una pantalla que me permita ver informaión de la película.
-</h5>
