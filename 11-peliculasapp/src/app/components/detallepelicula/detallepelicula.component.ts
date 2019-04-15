@@ -9,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetallepeliculaComponent implements OnInit {
 
-  detallePelicula;
+  detallePelicula: any;
+  loading = true;
 
   constructor(private _router: ActivatedRoute, public _ps: PeliculasService) {
     this._router.params.subscribe(params => {
-      console.log(params['id']);
       this._ps.buscarpeliculaPorId(params['id']).subscribe(data => {
         this.detallePelicula = data['_body'];
-        console.log(data['_body']);
+        this.loading = false;
       });
     });
   }

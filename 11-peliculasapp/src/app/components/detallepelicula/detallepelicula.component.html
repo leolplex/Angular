@@ -1,7 +1,12 @@
-<div class="card mb-12" style="max-width: 1024px;">
+<div *ngIf="loading" class="alert alert-warning" role="alert">
+    <strong>Cargando...</strong> por favor espere
+</div>
+
+
+<div *ngIf="!loading" class="card mb-12" style="max-width: 1024px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img [src]="detallePelicula.poster_path | urlimage: detallePelicula.poster_path" class="card-img" alt="...">
+            <img [src]="detallePelicula.poster_path | urlimage" class="card-img" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -13,10 +18,3 @@
         </div>
     </div>
 </div>
-
-
-<hr>
-
-<h5>
-    La página anterior, es decir, si lo llame del HOME, debe de regresar al HOME, si la llame del buscador, debe de regresarme al BUSCADOR!
-</h5>

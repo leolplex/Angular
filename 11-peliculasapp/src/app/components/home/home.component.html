@@ -7,8 +7,10 @@
         <h1 class="display-12 font-italic">Peliculas en la cartelera de cines actual</h1>
     </div>
 </div>
-
-<app-pelicula [items]="peliculasEnCartelera"></app-pelicula>
+<div *ngIf="loadingInTheatres" class="alert alert-warning" role="alert">
+    <strong>Cargando...</strong> por favor espere
+</div>
+<app-pelicula *ngIf="!loadingInTheatres" [items]="peliculasEnCartelera"></app-pelicula>
 
 <hr>
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
@@ -16,8 +18,10 @@
         <h1 class="display-12 font-italic">Peliculas populares</h1>
     </div>
 </div>
-
-<app-pelicula [items]="peliculasPopulares"></app-pelicula>
+<div *ngIf="loadingPopulares" class="alert alert-warning" role="alert">
+    <strong>Cargando...</strong> por favor espere
+</div>
+<app-pelicula *ngIf="!loadingPopulares" [items]="peliculasPopulares"></app-pelicula>
 <hr>
 
 <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
@@ -25,5 +29,8 @@
         <h1 class="display-12 font-italic">Peliculas para niños más populares</h1>
     </div>
 </div>
-<app-pelicula [items]="peliculasParaNinosPopulares"></app-pelicula>
+<div *ngIf="loadingMostPopularKids" class="alert alert-warning" role="alert">
+    <strong>Cargando...</strong> por favor espere
+</div>
+<app-pelicula *ngIf="!loadingMostPopularKids" [items]="peliculasParaNinosPopulares"></app-pelicula>
 <hr>

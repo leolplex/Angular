@@ -8,7 +8,7 @@ export class UrlimagePipe implements PipeTransform {
 
   transform(value: string): string {
     if (value === null) {
-      return '/assets/default/default.jpg';
+      return 'assets/default/default.jpg';
     }
     return this.urlImg + value;
   }
