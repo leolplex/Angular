@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class PeliculaComponent implements OnInit {
   @Input() items: any[] = [];
+  @Input() openby: string;
 
   constructor(private _router: Router) { }
 
@@ -15,6 +16,6 @@ export class PeliculaComponent implements OnInit {
   }
 
   verdetallepelicula(id) {
-    this._router.navigate(['/detallepelicula', id]);
+    this._router.navigate(['/detallepelicula', id, this.openby]);
   }
 }

@@ -9,7 +9,7 @@ import { DetallepeliculaComponent } from './components/detallepelicula/detallepe
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'busqueda/:id', component: BusquedaComponent },
-    { path: 'detallepelicula/:id', component: DetallepeliculaComponent },
+    { path: 'detallepelicula/:id/:pag', component: DetallepeliculaComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
