@@ -3,13 +3,32 @@ import { NgModule } from '@angular/core';
 import { FeatureRoutingModule } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { FotosComponent } from './components/fotos/fotos.component';
 import { CargaComponent } from './components/carga/carga.component';
+import { FotosComponent } from './components/fotos/fotos.component';
+import { CargaImagenesService } from './services/carga-imagenes.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirestoreSettingsToken } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
 
 @NgModule({
-  declarations: [AppComponent, FotosComponent, CargaComponent],
-  imports: [BrowserModule, FeatureRoutingModule],
-  providers: [],
+  declarations: [AppComponent, FotosComponent, CargaComponent, NgDropFilesDirective],
+  imports: [
+    BrowserModule,
+    FeatureRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
+  ],
+  providers: [
+    CargaImagenesService,
+    { provide: FirestoreSettingsToken, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
